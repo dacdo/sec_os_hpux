@@ -6,7 +6,7 @@ control '2.1.1.17 Disable inetd spray for udp' do
   title '2.1.1.17 Disable inetd spray for udp'
   desc 'Disable inetd spray for udp'
   describe file('/etc/inetd.conf') do
-    its('content') { should match(/#\s*rpc\s+?dgram\s+?udp\s+?wait\s+?root\s+?\/usr\/lib/\/netsvc\/spray\/rpc.sprayd/) }
+    its('content') { should match(/#\s*rpc\s+?dgram\s+?udp\s+?wait\s+?root\s+?\/usr\/lib\/netsvc\/spray\/rpc.sprayd/) }
   end
 end
 
