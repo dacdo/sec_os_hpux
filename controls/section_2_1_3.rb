@@ -15,6 +15,6 @@ control '2.1.3.01b Disable inetd daytime for udp6' do
   title '2.1.3.01b Disable inetd daytime for udp6'
   desc 'Disable inetd daytime for udp6'
   describe file('/etc/inetd.conf') do
-    its('content') { should match(/#\s*daytime\s+?dgram\s+?tcp6\s+?nowait\s+?root\s+?internal/) }
+    its('content') { should match(/#\s*daytime\s+?dgram\s+?udp6\s+?nowait\s+?root\s+?internal/) }
   end
 end

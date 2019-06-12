@@ -6,7 +6,7 @@ control '2.1.1.32 Disable inetd gssd for ticotsord' do
   title '2.1.1.32 Disable inetd gssd for ticotsord'
   desc 'Disable inetd gssd for ticotsord'
   describe file('/etc/inetd.conf') do
-    its('content') { should match(/#\s*rpc\s+?xti\s+?ticotsord\s+?wait\s+?root\s+?\/usr\/lib\/gss\/gssd/) }
+    its('content') { should match(/#\s*rpc\s+?xti\s+?ticotsord\s+?swait\s+?root\s+?\/usr\/lib\/gss\/gssd/) }
   end
 end
 

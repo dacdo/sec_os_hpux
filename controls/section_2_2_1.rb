@@ -8,6 +8,8 @@ control '2.2.1.1 Disable nis/nis+ boot services' do
   describe file('/etc/rc.config.d/namesvrs') do
     its('content') { should match(/#\s*NIS_MASTER_SERVER\s+?=\s+?0/) }
     its('content') { should match(/#\s*NIS_SLAVE_SERVER\s+?=\s+?0/) }
+    its('content') { should match(/#\s*NISPLUS_SERVER\s+?=\s+?0/) }
+    its('content') { should match(/#\s*NISPLUS_CLIENT\s+?=\s+?0/) }
   end
 end
 

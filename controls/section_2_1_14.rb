@@ -6,7 +6,7 @@ control '2.1.1.14 Disable inetd rstat for udp' do
   title '2.1.1.14 Disable inetd rstat for udp'
   desc 'Disable inetd rstat for udp'
   describe file('/etc/inetd.conf') do
-    its('content') { should match(/#\s*rpc\s+?dgram\s+?udp\s+?wait\s+?root\s+?\/usr\/lib\/netsvc\/rstat\/rstat.rstatd/) }
+    its('content') { should match(/#\s*rpc\s+?dgram\s+?udp\s+?wait\s+?root\s+?\/usr\/lib\/netsvc\/rstat\/rpc.rstatd/) }
   end
 end
 

@@ -6,7 +6,7 @@ control '2.1.1.05 Disable inetd dtspcd for tcp' do
   title '2.1.1.05 Disable inetd dtspcd for tcp'
   desc 'Disable inetd dtspcd for tcp'
   describe file('/etc/inetd.conf') do
-    its('content') { should match(/#\s*dtspcd\s+?stream\s+?tcp\s+?nowait\s+?root\s+?\/usr\/dt\/bin\/dtspcd/) }
+    its('content') { should match(/#\s*dtspc\s+?stream\s+?tcp\s+?nowait\s+?root\s+?\/usr\/dt\/bin\/dtspcd/) }
   end
 end
 

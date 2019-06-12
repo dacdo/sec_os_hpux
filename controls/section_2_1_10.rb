@@ -6,7 +6,7 @@ control '2.1.1.10 Disable inetd auth for tcp6' do
   title '2.1.1.10 Disable inetd auth for tcp6'
   desc 'Disable inetd auth for tcp6'
   describe file('/etc/inetd.conf') do
-    its('content') { should match(/#\s*auth\s+?stream\s+?tcp6\s+?wait\s+?bin\s+?\/usr\/lbin\/idend/) }
+    its('content') { should match(/#\s*auth\s+?stream\s+?tcp6\s+?wait\s+?bin\s+?\/usr\/lbin\/identd/) }
   end
 end
 

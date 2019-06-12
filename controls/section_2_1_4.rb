@@ -15,6 +15,6 @@ control '2.1.4.01b Disable inetd chargen for udp6' do
   title '2.1.4.01b Disable inetd chargen for udp6'
   desc 'Disable inetd chargen for udp6'
   describe file('/etc/inetd.conf') do
-    its('content') { should match(/#\s*chargen\s+?dgram\s+?tcp6\s+?nowait\s+?root\s+?internal/) }
+    its('content') { should match(/#\s*chargen\s+?dgram\s+?udp6\s+?nowait\s+?root\s+?internal/) }
   end
 end

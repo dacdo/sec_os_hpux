@@ -15,6 +15,6 @@ control '2.1.2.02b Disable inetd discard for udp6' do
   title '2.1.2.01b Disable inetd discard for udp6'
   desc 'Disable inetd discard for udp6'
   describe file('/etc/inetd.conf') do
-    its('content') { should match(/#\s*discard\s+?dgram\s+?tcp6\s+?nowait\s+?root\s+?internal/) }
+    its('content') { should match(/#\s*discard\s+?dgram\s+?udp6\s+?nowait\s+?root\s+?internal/) }
   end
 end

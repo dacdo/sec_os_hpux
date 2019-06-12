@@ -6,7 +6,7 @@ control '2.1.1.28 Disable inetd rquotad for udp' do
   title '2.1.1.28 Disable inetd rquotad for udp'
   desc 'Disable inetd rquotad for udp'
   describe file('/etc/inetd.conf') do
-    its('content') { should match(/#\s*rpc\s+?stream\s+?udp\s+?nowait\s+?root\s+?\/usr\/sbin\/rpc.rquotad/) }
+    its('content') { should match(/#\s*rpc\s+?dgram\s+?udp\s+?wait\s+?root\s+?\/usr\/sbin\/rpc.rquotad/) }
   end
 end
 
