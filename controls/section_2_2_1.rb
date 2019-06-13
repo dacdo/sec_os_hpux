@@ -47,6 +47,27 @@ control '2.2.1.3 Disable SNMP' do
   describe file('/etc/rc.config.d/netdaemons') do
     its('content') { should match(/^\s*OSPFMIB\s*=\s*0/) }
   end
+  describe file('/etc/rc.config.d/opcagt') do
+    its('content') { should match(/^\s*OPCAGT\s*=\s*0/) }
+  end
 end
 
+
+control '2.2.1.4 Multicast daemon' do
+  impact 0.6
+  title '2.2.1.4 Multicast daemon'
+  desc 'Multicast daemon'
+  describe file('/etc/rc.config.d/netdaemons') do
+    its('content') { should match(/MROUTED\s*=\s*0/) }
+  end
+end
+
+control '2.2.1.5 Remote system status daemon' do
+  impact 0.6
+  title '2.2.1.5 Remote system status daemon'
+  desc 'Multicast daemon'
+  describe file('/etc/rc.config.d/netdaemons') do
+    its('content') { should match(/MROUTED\s*=\s*0/) }
+  end
+end
 
