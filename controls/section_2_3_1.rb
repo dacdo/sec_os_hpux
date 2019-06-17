@@ -1,21 +1,19 @@
 # encoding: utf-8
 # copyright: 2018, The Authors
 
-control '2.2.1.1 Disable nis/nis+ boot services' do
+control '2.3.1.1 CDE GUI login' do
   impact 0.6
-  title '2.2.1.1 Disable nis/nis+ boot services'
-  desc 'Disable nis/nis+ boot services'
-  describe file('/etc/rc.config.d/namesvrs') do
-    its('content') { should match(/#\s*NIS_MASTER_SERVER\s*=\s*0/) }
-    its('content') { should match(/#\s*NIS_SLAVE_SERVER\s*=\s*0/) }
-    its('content') { should match(/#\s*NISPLUS_SERVER\s*=\s*0/) }
-    its('content') { should match(/#\s*NISPLUS_CLIENT\s*=\s*0/) }
+  title '2.3.1.1 CDE GUI login'
+  desc 'CDE GUI login'
+  describe file('/etc/rc.config.d/desktop') do
+    its('content') { should match(/DESKTOP\s*=\s*0/) }
+    its('content') { should match(/XPRINTSERVERS\s*=\s*"\s*"/) }
   end
 end
 
-control '2.2.1.2 Disable printer daemons' do
+control '2.3.1.2 Disable printer daemons' do
   impact 0.6
-  title '2.2.1.2 Disable printer daemons'
+  title '2.3.1.2 Disable printer daemons'
   desc 'Disable printer daemons'
   describe file('/etc/rc.config.d/tps') do
     its('content') { should match(/XPRINTSERVERS\s*=\s*"\s*"/) }
@@ -25,9 +23,9 @@ control '2.2.1.2 Disable printer daemons' do
   end
 end
 
-control '2.2.1.3 Disable SNMP' do
+control '2.3.1.3 Disable SNMP' do
   impact 0.6
-  title '2.2.1.3 Disable SNMP'
+  title '2.3.1.3 Disable SNMP'
   desc 'Disable SNMP'
   describe file('/sbin/rc2.d/S570SnmpFddi') do
     it { should_not exist } 
@@ -53,162 +51,162 @@ control '2.2.1.3 Disable SNMP' do
 end
 
 
-control '2.2.1.4 Multicast daemon' do
+control '2.3.1.4 Multicast daemon' do
   impact 0.6
-  title '2.2.1.4 Multicast daemon'
+  title '2.3.1.4 Multicast daemon'
   desc 'Multicast daemon'
   describe file('/etc/rc.config.d/netdaemons') do
     its('content') { should match(/MROUTED\s*=\s*0/) }
   end
 end
 
-control '2.2.1.5 Remote system status daemon' do
+control '2.3.1.5 Remote system status daemon' do
   impact 0.6
-  title '2.2.1.5 Remote system status daemon'
+  title '2.3.1.5 Remote system status daemon'
   desc 'Remote system status daemon MROUTED'
   describe file('/etc/rc.config.d/netdaemons') do
     its('content') { should match(/MROUTED\s*=\s*0/) }
   end
 end
 
-control '2.2.1.6 Remote system status daemon RWHOD' do
+control '2.3.1.6 Remote system status daemon RWHOD' do
   impact 0.6
-  title '2.2.1.6 Remote system status daemon RWHOD'
+  title '2.3.1.6 Remote system status daemon RWHOD'
   desc 'Remote system status daemon RWHOD'
   describe file('/etc/rc.config.d/netdaemons') do
     its('content') { should match(/RWHOD\s*=\s*0/) }
   end
 end
 
-control '2.2.1.7 Remote system status daemon DDFA' do
+control '2.3.1.7 Remote system status daemon DDFA' do
   impact 0.6
-  title '2.2.1.7 Remote system status daemon DDFA'
+  title '2.3.1.7 Remote system status daemon DDFA'
   desc 'Remote system status daemon DDFA'
   describe file('/etc/rc.config.d/netdaemons') do
     its('content') { should match(/DDFA\s*=\s*0/) }
   end
 end
 
-control '2.2.1.8 Remote system status daemon START_RBOOTD' do
+control '2.3.1.8 Remote system status daemon START_RBOOTD' do
   impact 0.6
-  title '2.2.1.8 Remote system status daemon START_RBOOTD'
+  title '2.3.1.8 Remote system status daemon START_RBOOTD'
   desc 'Remote system status daemon START_RBOOTD'
   describe file('/etc/rc.config.d/netdaemons') do
     its('content') { should match(/START_RBOOTD\s*=\s*0/) }
   end
 end
 
-control '2.2.1.9 Reverse daemon RARPD' do
+control '2.3.1.9 Reverse daemon RARPD' do
   impact 0.6
-  title '2.2.1.9 Reverse daemon RARPD'
+  title '2.3.1.9 Reverse daemon RARPD'
   desc 'Reverse daemon RARPD'
   describe file('/etc/rc.config.d/netconf') do
     its('content') { should match(/RARPD\s*=\s*0/) }
   end
 end
 
-control '2.2.1.10 Router discover daemon RDPD' do
+control '2.3.1.10 Router discover daemon RDPD' do
   impact 0.6
-  title '2.2.1.10 Router discover daemon RDPD'
+  title '2.3.1.10 Router discover daemon RDPD'
   desc 'Router discover daemon RDPD'
   describe file('/etc/rc.config.d/netconf') do
     its('content') { should match(/RDPD\s*=\s*0/) }
   end
 end
 
-control '2.2.1.11 pty daemon' do
+control '2.3.1.11 pty daemon' do
   impact 0.6
-  title '2.2.1.11 pty daemon'
+  title '2.3.1.11 pty daemon'
   desc 'pty daemon'
   describe file('/etc/rc.config.d/ptydaemon') do
     its('content') { should match(/PTYDAEMON_START\s*=\s*0/) }
   end
 end
 
-control '2.2.1.12 vt daemon' do
+control '2.3.1.12 vt daemon' do
   impact 0.6
-  title '2.2.1.12 vt daemon'
+  title '2.3.1.12 vt daemon'
   desc 'vt daemon'
   describe file('/etc/rc.config.d/vt') do
     its('content') { should match(/VTDAEMON_START\s*=\s*0/) }
   end
 end
 
-control '2.2.1.13 License server' do
+control '2.3.1.13 License server' do
   impact 0.6
-  title '2.2.1.13 License server'
+  title '2.3.1.13 License server'
   desc 'License server'
   describe file('/etc/rc.config.d/i4lmd') do
     its('content') { should match(/I4LMD\s*=\s*0/) }
   end
 end
 
-control '2.2.1.14 Font server' do
+control '2.3.1.14 Font server' do
   impact 0.6
-  title '2.2.1.14 Font server'
+  title '2.3.1.14 Font server'
   desc 'Font server'
   describe file('/etc/rc.config.d/xfs') do
     its('content') { should match(/RUN_X_FONT_SERVER\s*=\s*0/) }
   end
 end
 
-control '2.2.1.15 Audio server' do
+control '2.3.1.15 Audio server' do
   impact 0.6
-  title '2.2.1.15 Audio server'
+  title '2.3.1.15 Audio server'
   desc 'Audio server'
   describe file('/etc/rc.config.d/audio') do
     its('content') { should match(/AUDIO_SERVER\s*=\s*0/) }
   end
 end
 
-control '2.2.1.16 Single logical screen daemon' do
+control '2.3.1.16 Single logical screen daemon' do
   impact 0.6
-  title '2.2.1.16 Single logical screen daemon'
+  title '2.3.1.16 Single logical screen daemon'
   desc 'Single logical screen daemon'
   describe file('/etc/rc.config.d/slsd') do
     its('content') { should match(/SLSD_DAEMON\s*=\s*0/) }
   end
 end
 
-control '2.2.1.17 Samba server' do
+control '2.3.1.17 Samba server' do
   impact 0.6
-  title '2.2.1.17 Samba server'
+  title '2.3.1.17 Samba server'
   desc 'Samba server'
   describe file('/etc/rc.config.d/samba') do
     its('content') { should match(/RUN_SAMBA\s*=\s*0/) }
   end
 end
 
-control '2.2.1.18 NFS server' do
+control '2.3.1.18 NFS server' do
   impact 0.6
-  title '2.2.1.18 NFS server'
+  title '2.3.1.18 NFS server'
   desc 'NFS server'
   describe file('/etc/rc.config.d/nfsconf') do
     its('content') { should match(/NFS_SERVER\s*=\s*0/) }
   end
 end
 
-control '2.2.1.19 NFS client' do
+control '2.3.1.19 NFS client' do
   impact 0.6
-  title '2.2.1.19 NFS client'
+  title '2.3.1.19 NFS client'
   desc 'NFS client'
   describe file('/etc/rc.config.d/nfsconf') do
     its('content') { should match(/NFS_CLIENT\s*=\s*0/) }
   end
 end
 
-control '2.2.1.20 Web server' do
+control '2.3.1.20 Web server' do
   impact 0.6
-  title '2.2.1.20 Web server'
+  title '2.3.1.20 Web server'
   desc 'Web server'
   describe file('/etc/rc.config.d/hpws_apacheconf') do
     its('content') { should match(/HPWS_APACHE_START\s*=\s*0/) }
   end
 end
 
-control '2.2.1.21 Web server suite' do
+control '2.3.1.21 Web server suite' do
   impact 0.6
-  title '2.2.1.21 Web server suite'
+  title '2.3.1.21 Web server suite'
   desc 'Web server suite'
   describe file('/etc/rc.config.d/ns-ftrack') do
     its('content') { should match(/NS_FTRACK\s*=\s*0/) }
@@ -227,9 +225,9 @@ control '2.2.1.21 Web server suite' do
   end
 end
 
-control '2.2.1.22 BIND DNS' do
+control '2.3.1.22 BIND DNS' do
   impact 0.6
-  title '2.2.1.22 BIND DNS'
+  title '2.3.1.22 BIND DNS'
   desc 'BIND DNS'
   describe file('/etc/rc.config.d/namesvrs') do
     its('content') { should match(/NAMED\s*=\s*0/) }
